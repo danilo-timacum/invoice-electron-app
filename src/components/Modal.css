@@ -1,0 +1,37 @@
+.modal-backdrop {
+  background-color: rgba(128, 128, 128, 0.7);
+  position: fixed;
+  z-index: 10;
+  top: 73px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 618px;
+  max-width: 90%;
+  min-width: 200px;
+  border-radius: 0 10px 10px 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-weight: bold;
+  padding: 10px;
+}
+
+.modal-inside {
+  overflow: auto;
+  height: 100%;
+}

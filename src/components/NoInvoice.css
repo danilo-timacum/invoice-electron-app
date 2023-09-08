@@ -1,0 +1,26 @@
+.no-invoice {
+  margin-top: 102px;
+  padding-bottom: 140px;
+}
+.no-invoice figure img  {
+  display: block;
+  margin: 0 auto;
+}
+.no-invoice figure {
+  margin-bottom: 4rem;
+}
+.no-invoice h2 {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 22px;
+  letter-spacing: -0.625px;
+  color: var(--title-color);
+  margin-bottom: 24px;
+}
+.no-invoice p {
+  color: var(--noinvoice-text);
+  padding: 0 49px;
+}
+.no-invoice p span {
+  font-weight: bold;
+}

@@ -1,0 +1,51 @@
+.homepage-filter {
+  cursor: pointer;
+}
+
+.homepage-filter span {
+  color: var(--title-color);
+  font-weight: bold;
+  margin-right: 12px;
+}
+
+.homepage-filter img {
+  filter: invert(61%) sepia(84%) saturate(6413%) hue-rotate(235deg)
+    brightness(102%) contrast(96%);
+}
+
+.filter-wrapper {
+  position: absolute;
+  margin-top: 2.3rem;
+  width: 192px;
+  border-radius: 0.8rem;
+  background: #e0e4fb;
+  box-shadow: rgb(0 0 0 / 25%) 0px 10px 20px;
+  transform: translateX(-25%);
+  padding: 2.4rem;
+}
+
+.filter-item {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.filter-item input {
+  margin-right: 1.3rem;
+  border: 0px;
+  background: #ffffff;
+  /* appearance: none; */
+  height: 16px;
+  width: 16px;
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+}
+
+.filter-item small {
+  color: var(--color-white);
+  line-height: 1.7rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}

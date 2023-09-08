@@ -1,0 +1,37 @@
+.footer {
+  max-width: 617px;
+  margin: 0 auto;
+}
+.with-gradient {
+  height: 64px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.0001) 0%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+.with-buttons {
+  background: var(--with-buttons-bg);
+  box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
+  display: flex;
+  padding: 21px 24px 22px;
+  justify-content: flex-end;
+}
+.cancel-btn {
+  background: var(--cancel-btn-bg);
+  border-radius: 24px;
+  color: var(--light-color);
+  width: 96px;
+  height: 48px;
+  border-color: transparent;
+  font-weight: bold;
+}
+.save-btn {
+  background-color: #7c5dfa;
+  color: #ffffff;
+  border-radius: 24px;
+  width: 138px;
+  height: 48px;
+  border-color: transparent;
+  font-weight: bold;
+}

@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap');
+
+/* font-family: 'Spartan', sans-serif; */
+.App {
+	--body-color: #888eb0;
+	--body-bg-color: #f2f2f2;
+	--invoice-card-bg: #ffffff;
+	--hash-color: #7e88c3;
+	--name-color: #858bb2;
+	--light-color: #7e88c3;
+	--paid-color: #33d69f;
+	--paid-color-bg: rgba(51, 214, 159, 0.06);
+	--pending-color: #ff8f00;
+	--pending-color-bg: rgba(255, 143, 0, 0.06);
+	--draft-color: #373b53;
+	--draft-color-bg: rgba(55, 59, 83, 0.06);
+	--invoice-counter: #888eb0;
+	--noinvoice-text: #888eb0;
+	--title-color: #0c0e16;
+	--invoice-design-bg: #f9fafe;
+	--grand-total-bg: #373b53;
+	--edit-invoice-bg: #ffffff;
+	--edit-btn-bg: #f9fafe;
+	--edit-btn-color: #7e88c3;
+	--invoice-info-bg: #ffffff;
+	--form-headings-color: #7e88c3;
+	--new-item-bg: #f9fafe;
+	--form-bg: #ffffff;
+	--taraba-color: #888eb0;
+	--with-buttons-bg: #ffffff;
+	--cancel-btn-bg: #f9fafe;
+	--page-bg: #f2f2f2;
+}
+.App.dark {
+	--body-color: #dfe3fa;
+	--body-bg-color: #000000;
+	--invoice-card-bg: #1e2139;
+	--hash-color: #7e88c3;
+	--name-color: #ffffff;
+	--light-color: #dfe3fa;
+	--paid-color: #33d69f;
+	--paid-color-bg: rgba(51, 214, 159, 0.06);
+	--pending-color: #ff8f00;
+	--pending-color-bg: rgba(255, 143, 0, 0.06);
+	--draft-color: #dfe3fa;
+	--draft-color-bg: rgba(223, 227, 250, 0.06);
+	--invoice-counter: #dfe3fa;
+	--noinvoice-text: #dfe3fa;
+	--title-color: #ffffff;
+	--invoice-design-bg: #252945;
+	--grand-total-bg: #0c0e16;
+	--edit-invoice-bg: #1e2139;
+	--edit-btn-bg: #252945;
+	--edit-btn-color: #ffffff;
+	--invoice-info-bg: #1e2139;
+	--form-headings-color: #888eb0;
+	--new-item-bg: #252945;
+	--form-bg: #141625;
+	--taraba-color: #777f98;
+	--with-buttons-bg: #1e2139;
+	--cancel-btn-bg: #252945;
+	--page-bg: #141625;
+}
+html {
+	box-sizing: border-box;
+	font-size: 10px;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+body {
+	font-family: 'Spartan', sans-serif;
+	font-weight: 500;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	letter-spacing: -0.25px;
+	color: var(--body-color);
+}
+.position-relative {
+	position: relative;
+}

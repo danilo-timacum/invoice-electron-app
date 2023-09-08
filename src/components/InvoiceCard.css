@@ -1,0 +1,89 @@
+a.invoice-card {
+  padding: 24px;
+  background: var(--invoice-card-bg);
+  box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-decoration: none;
+  margin-bottom: 16px;
+}
+
+.d-none {
+  display: none;
+}
+.pb-24 {
+  padding-bottom: 24px;
+}
+.text-start {
+  text-align: start;
+}
+.text-end {
+  text-align: end;
+}
+.invoice-card-id p {
+  color: var(--hash-color);
+}
+.invoice-card-id p span {
+  color: var(--title-color);
+  font-weight: bold;
+}
+.invoice-card-name {
+  color: var(--name-color);
+}
+.invoice-card-due {
+  color: var(--light-color);
+  margin-bottom: 8px;
+}
+.invoice-card-total p {
+  color: var(--title-color);
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.8px;
+}
+
+.invoice-card-status {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  font-weight: bold;
+  border-radius: 6px;
+  max-width: 104px;
+  height: 40px;
+  margin-left: auto;
+  /* background-color: var(--paid-color-bg);
+  color: var(--paid-color); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.invoice-card-status.paid {
+  background-color: var(--paid-color-bg);
+  color: var(--paid-color);
+}
+.invoice-card-status.pending {
+  background-color: var(--pending-color-bg);
+  color: var(--pending-color);
+}
+.invoice-card-status.draft {
+  background-color: var(--draft-color-bg);
+  color: var(--draft-color);
+}
+
+.invoice-card-status span:first-of-type {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.invoice-card-status.paid span:first-of-type {
+  background-color: var(--paid-color);
+}
+.invoice-card-status.pending span:first-of-type {
+  background-color: var(--pending-color);
+}
+.invoice-card-status.draft span:first-of-type {
+  background-color: var(--draft-color);
+}
