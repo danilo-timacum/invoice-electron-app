@@ -33,3 +33,26 @@ console.log(
 );
 
 import './app';
+
+// function updateImagePaths() {
+// 	const images = document.querySelectorAll('img[data-asset]');
+
+// 	console.log('inside updateImagePaths');
+
+// 	images.forEach(async (img) => {
+// 		console.log(img);
+// 		const asset = img.getAttribute('data-asset');
+// 		const src = await window.electron.getAssetPath(asset);
+// 		img.src = src;
+// 	});
+// }
+
+// function getAssetPath(asset) {
+// 	if (process.env.NODE_ENV === 'development') {
+// 		return path.join(__dirname, '..', 'assets', asset);
+// 	} else {
+// 		return path.join(__dirname, 'assets', asset);
+// 	}
+// }
+
+// document.addEventListener('DOMContentLoaded', updateImagePaths);

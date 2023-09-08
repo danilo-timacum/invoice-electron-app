@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+	BrowserRouter as Router,
+	HashRouter,
+	Route,
+	Switch,
+} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import React from 'react';
 
@@ -73,7 +78,7 @@ function Routes() {
 
 	return (
 		<div className={`App ${theme}`}>
-			<Router>
+			<HashRouter>
 				<Sidebar theme={theme} setTheme={setTheme} />
 				<Switch>
 					<Route exact path='/'>
@@ -88,7 +93,7 @@ function Routes() {
 						/>
 					</Route>
 				</Switch>
-			</Router>
+			</HashRouter>
 			{/* <HomePage /> */}
 			{/* <InvoicePage /> */}
 			{/* <Form />

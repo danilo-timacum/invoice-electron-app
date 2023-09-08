@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { formatDate } from '../helpers/helpers';
 import React from 'react';
+import imgIconDelete from '../assets/icon-delete.svg';
 
 import './Form.css';
 
@@ -341,7 +342,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 							</div>
 						</div>
 						<div onClick={() => removeItem(item.name)} className='item-delete'>
-							<img src='../assets/icon-delete.svg' alt='icon-delete' />
+							<img src={imgIconDelete} alt='icon-delete' />
 						</div>
 					</div>
 				))}

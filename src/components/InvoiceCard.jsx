@@ -2,6 +2,7 @@ import './InvoiceCard.css';
 import { Link } from 'react-router-dom';
 import { formatCurrency } from '../helpers/helpers';
 import React from 'react';
+import imgArrowRight from '../assets/icon-arrow-right.svg';
 
 const InvoiceCard = (props) => {
 	return (
@@ -30,7 +31,7 @@ const InvoiceCard = (props) => {
 				<span id='invoiceStatus'>{props.status}</span>
 			</div>
 			<div className='invoice-card-arrow d-none'>
-				<img src='../assets/icon-arrow-right.svg' alt='icon-arrow-right' />
+				<img src={imgArrowRight} alt='icon-arrow-right' />
 			</div>
 		</Link>
 	);

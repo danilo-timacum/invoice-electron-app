@@ -6,6 +6,7 @@ import Modal from '../components/Modal';
 import Form from '../components/Form';
 import './InvoicePage.css';
 import React from 'react';
+import imgArrowLeft from '../assets/icon-arrow-left.svg';
 
 function InvoicePage({ fetchInvoice, deleteInvoice, setInvoices, setToPaid }) {
 	const { id } = useParams();
@@ -24,7 +25,7 @@ function InvoicePage({ fetchInvoice, deleteInvoice, setInvoices, setToPaid }) {
 				<>
 					<div className='invoice-page'>
 						<Link to='/' className='go-back'>
-							<img src='../assets/icon-arrow-left.svg' alt='icon-left' />
+							<img src={imgArrowLeft} alt='icon-left' />
 							<span>go back</span>
 						</Link>
 						<div className='invoice-status'>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Filter.css';
 import React from 'react';
+import imgCheck from '../assets/icon-check.svg';
 
 const Filter = ({ updateFilter }) => {
 	const [showFilter, setShowFilter] = useState(false);
@@ -12,7 +13,7 @@ const Filter = ({ updateFilter }) => {
 				onClick={() => setShowFilter((curr) => !curr)}
 			>
 				<span>Filter</span>
-				<img src='../assets/icon-check.svg' alt='icon-check' />
+				<img src={imgCheck} alt='icon-check' />
 			</div>
 			{showFilter && (
 				<div className='filter-wrapper'>

@@ -3,13 +3,28 @@ import Modal from '../components/Modal';
 import InvoiceCard from '../components/InvoiceCard';
 import NoInvoice from '../components/NoInvoice';
 import Form from '../components/Form';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Filter from '../components/Filter';
 import React from 'react';
+import imgIconPlus from '../assets/icon-plus.svg';
+
+// async function getAssetPath(assetName) {
+// 	try {
+// 		const assetPath = await window.electron.getAssetPath(assetName);
+// 		console.log(assetPath);
+// 		return assetPath;
+// 	} catch (error) {
+// 		console.error('Failed to get asset path:', error);
+// 	}
+// }
 
 function HomePage({ invoices, setInvoices }) {
 	const [showModal, setShowModal] = useState(false);
 	const [filter, setFilter] = useState([]);
+
+	// useEffect(() => {
+	// 	getAssetPath('image-avatar.jpg');
+	// }, []);
 
 	const updateFilter = (item, state) => {
 		if (state) {
@@ -48,7 +63,7 @@ function HomePage({ invoices, setInvoices }) {
 				<Filter updateFilter={updateFilter} />
 				<div onClick={() => setShowModal(true)} className='homepage-btn'>
 					<span>
-						<img src='../assets/icon-plus.svg' alt='icon-plus' />
+						<img src={imgIconPlus} alt='icon-plus' />
 					</span>
 					<span className='new-span'>New</span>
 					<span className='d-none'>Invoice</span>
