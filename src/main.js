@@ -13,12 +13,36 @@ const createWindow = () => {
 	const mainWindow = new BrowserWindow({
 		// width: 800,
 		// height: 600,
+		// contextBridge: true,
 		width: 1920,
 		height: 1080,
 		webPreferences: {
 			preload: path.join(__dirname, 'preload.js'),
 			devTools: isDev,
 		},
+	});
+
+	const testWindow = new BrowserWindow({
+		parent: mainWindow,
+		// contextBridge: true,
+		width: 500,
+		height: 500,
+		show: false,
+		closable: false,
+		webPreferences: {
+			preload: path.join(__dirname, 'preload.js'),
+			devTools: isDev,
+		},
+	});
+
+	ipcMain.on('show-test', () => {
+		testWindow.show();
+		console.log('ipcmain on show-test');
+	});
+
+	ipcMain.on('hide-test', () => {
+		testWindow.hide();
+		console.log('ipcmain on hide-test');
 	});
 
 	// mainWindow.webContents.session.protocol.handle('media', async (request) => {
@@ -41,10 +65,16 @@ const createWindow = () => {
 	// and load the index.html of the app.
 	if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
 		mainWindow.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL);
+		testWindow.loadURL(`${MAIN_WINDOW_VITE_DEV_SERVER_URL}/test.html`);
+		// child.show();
 	} else {
 		mainWindow.loadFile(
 			path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`)
 		);
+		testWindow.loadFile(
+			path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/test.html`)
+		);
+		// child.show();
 	}
 
 	// Open the DevTools.
