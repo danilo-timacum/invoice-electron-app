@@ -22,27 +22,151 @@ const createWindow = () => {
 		},
 	});
 
-	const testWindow = new BrowserWindow({
-		parent: mainWindow,
+	let testWindow = new BrowserWindow({
+		// parent: mainWindow,
 		// contextBridge: true,
 		width: 500,
 		height: 500,
 		show: false,
-		closable: false,
 		webPreferences: {
 			preload: path.join(__dirname, 'preload.js'),
 			devTools: isDev,
 		},
 	});
 
+	// mainWindow.on('before-quit', (event) => {
+	// 	console.log('before-quit event');
+	// 	console.log(event);
+	// 	event.preventDefault();
+	// 	testWindow.hide();
+	// });
+
+	// mainWindow.on('before-unload', (event) => {
+	// 	console.log('before-unload event');
+	// 	console.log(event);
+	// 	event.preventDefault();
+	// 	testWindow.hide();
+	// });
+
+	// mainWindow.on('close', (event) => {
+	// 	console.log('close event');
+	// 	console.log(event);
+	// 	event.preventDefault();
+	// 	mainWindow.hide();
+	// 	testWindow.hide();
+	// });
+
+	// testWindow.on('before-quit', (event) => {
+	// 	console.log('before-quit event');
+	// 	console.log(event);
+	// 	event.preventDefault();
+	// 	testWindow.hide();
+	// });
+
+	// testWindow.on('before-unload', (event) => {
+	// 	console.log('before-unload event');
+	// 	console.log(event);
+	// 	event.preventDefault();
+	// 	testWindow.hide();
+	// });
+
+	// testWindow.on('page-hide', (event) => {
+	// 	console.log('page-hide event');
+	// 	console.log(event);
+	// 	event.preventDefault();
+	// 	testWindow.hide();
+	// });
+
+	// testWindow.on('close', (event) => {
+	// 	console.log('close event');
+	// 	console.log(event);
+	// 	event.preventDefault();
+	// 	testWindow.hide();
+	// });
+
+	// testWindow.on('closed', (event) => {
+	// 	// if (win.hideInsteadOfClose == true) {
+	// 	console.log('closed event');
+	// 	console.log(event);
+	// 	event.preventDefault();
+	// 	testWindow.hide();
+	// 	// }
+	// });
+
+	// Set a variable when the app is quitting.
+	// var isAppQuitting = false;
+	// testWindow.on('before-quit', function (evt) {
+	// 	isAppQuitting = true;
+	// });
+
+	// testWindow.on('close', function (evt) {
+	// 	if (!isAppQuitting) {
+	// 		evt.preventDefault();
+	// 	}
+	// });
+
 	ipcMain.on('show-test', () => {
-		testWindow.show();
+		if (testWindow.isDestroyed()) {
+			console.log('destroyed');
+			testWindow = new BrowserWindow({
+				// parent: mainWindow,
+				// contextBridge: true,
+				width: 500,
+				height: 500,
+				show: true,
+				// closable: false,
+				webPreferences: {
+					preload: path.join(__dirname, 'preload.js'),
+					devTools: isDev,
+				},
+			});
+			if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
+				testWindow.loadURL(`${MAIN_WINDOW_VITE_DEV_SERVER_URL}/test.html`);
+			} else {
+				testWindow.loadFile(
+					path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/test.html`)
+				);
+			}
+		} else {
+			console.log('not destroyed');
+			testWindow.show();
+		}
 		console.log('ipcmain on show-test');
 	});
 
 	ipcMain.on('hide-test', () => {
-		testWindow.hide();
+		console.log(testWindow.isDestroyed());
+		if (!testWindow.isDestroyed()) {
+			testWindow.hide();
+		}
 		console.log('ipcmain on hide-test');
+	});
+
+	ipcMain.on('create-test', () => {
+		const testWindow = new BrowserWindow({
+			// parent: mainWindow,
+			// contextBridge: true,
+			width: 500,
+			height: 500,
+			// show: false,
+			closable: true,
+			webPreferences: {
+				preload: path.join(__dirname, 'preload.js'),
+				devTools: isDev,
+			},
+		});
+		if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
+			testWindow.loadURL(`${MAIN_WINDOW_VITE_DEV_SERVER_URL}/test.html`);
+			// child.show();
+		} else {
+			testWindow.loadFile(
+				path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/test.html`)
+			);
+			// child.show();
+		}
+		console.log('ipcmain on create-test');
+		let count = BrowserWindow.getAllWindows().length;
+		console.log({ count });
 	});
 
 	// mainWindow.webContents.session.protocol.handle('media', async (request) => {

@@ -92,6 +92,17 @@ function HomePage({ invoices, setInvoices }) {
 				>
 					hide test window
 				</button>
+				{/* <button
+					type='button'
+					onClick={() => {
+						window.electronAPI.createTest();
+						// const win = new BrowserWindow({ width: 800, height: 600 });
+						// // Load a remote URL
+						// win.loadURL('https://github.com');
+					}}
+				>
+					create test window
+				</button> */}
 			</div>
 			<div className='invoice-card-list'>
 				{invoices.length ? (

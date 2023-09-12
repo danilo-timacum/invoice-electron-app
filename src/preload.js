@@ -18,4 +18,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
 		console.log('clicked hide');
 		ipcRenderer.send('hide-test');
 	},
+	createTest: () => {
+		console.log('clicked create');
+		ipcRenderer.send('create-test');
+	},
 });
