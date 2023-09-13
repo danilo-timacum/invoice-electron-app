@@ -34,6 +34,25 @@ const createWindow = () => {
 		},
 	});
 
+	// ('window-all-closed');
+	// ('before-quit');
+	// ('will-quit');
+	// ('quit');
+
+	mainWindow.on('close', (event) => {
+		console.log('close event');
+		app.quit();
+	});
+	// mainWindow.on('closed', (event) => {
+	// 	console.log('closed event');
+	// });
+	// mainWindow.on('hise', (event) => {
+	// 	console.log('hise event');
+	// });
+	// mainWindow.on('minimize', (event) => {
+	// 	console.log('minimize event');
+	// });
+
 	// mainWindow.on('before-quit', (event) => {
 	// 	console.log('before-quit event');
 	// 	console.log(event);
@@ -218,6 +237,8 @@ app.on('window-all-closed', () => {
 		app.quit();
 	}
 });
+
+console.log(process.platform);
 
 app.on('activate', () => {
 	// On OS X it's common to re-create a window in the app when the
