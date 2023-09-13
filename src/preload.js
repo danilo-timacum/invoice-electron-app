@@ -22,4 +22,27 @@ contextBridge.exposeInMainWorld('electronAPI', {
 		console.log('clicked create');
 		ipcRenderer.send('create-test');
 	},
+
+	initState: (setState) => {
+		console.log('inside initState');
+		const stateUpdateHandler = (event, newState) => {
+			console.log({ receivedState: newState });
+			setState(newState);
+		};
+
+		ipcRenderer.on('state-update', stateUpdateHandler);
+
+		// Return a cleanup function to remove the event listener
+		return () => {
+			console.log('state-update listener cleanup');
+			ipcRenderer.removeListener('state-update', stateUpdateHandler);
+		};
+	},
+
+	sharedState: async () => ipcRenderer.invoke('get-current-state'),
+
+	sendStateUpdate: (state) => {
+		console.log({ state });
+		ipcRenderer.send('state-update', state);
+	},
 });

@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import Filter from '../components/Filter';
 import React from 'react';
 import imgIconPlus from '../assets/icon-plus.svg';
+import TestChild from '../components/testWindow/TestChild';
 
 // async function getAssetPath(assetName) {
 // 	try {
@@ -92,6 +93,11 @@ function HomePage({ invoices, setInvoices }) {
 				>
 					hide test window
 				</button>
+				<div>
+					<hr />
+					<TestChild />
+					<hr />
+				</div>
 				{/* <button
 					type='button'
 					onClick={() => {

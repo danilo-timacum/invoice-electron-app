@@ -262,3 +262,22 @@ app.on('activate', () => {
 // ipcMain.handle('get-asset-path', (event, asset) => {
 // 	return getAssetPath(asset);
 // });
+
+// state management setup
+let sharedState;
+
+ipcMain.on('state-update', (event, newState) => {
+	sharedState = newState;
+
+	console.log('Received state update in main process:', newState);
+	BrowserWindow.getAllWindows().forEach((win) => {
+		if (event.sender !== win.webContents) {
+			console.log('Sending state update to other windows:', newState);
+			win.webContents.send('state-update', newState);
+		}
+	});
+});
+
+ipcMain.handle('get-current-state', (event) => {
+	return sharedState;
+});
