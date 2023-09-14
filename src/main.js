@@ -31,6 +31,7 @@ const createWindow = () => {
 	let testWindow = new BrowserWindow({
 		// parent: mainWindow,
 		// contextBridge: true,
+		title: 'test',
 		width: 500,
 		height: 500,
 		show: false,
@@ -136,6 +137,8 @@ const createWindow = () => {
 			testWindow = new BrowserWindow({
 				// parent: mainWindow,
 				// contextBridge: true,
+
+				title: 'test',
 				width: 500,
 				height: 500,
 				show: true,
@@ -175,6 +178,8 @@ const createWindow = () => {
 		const testWindow = new BrowserWindow({
 			// parent: mainWindow,
 			// contextBridge: true,
+
+			title: 'test',
 			width: 500,
 			height: 500,
 			// show: false,
