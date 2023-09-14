@@ -54,6 +54,13 @@ function HomePage({ invoices, setInvoices }) {
 		});
 	};
 
+	const showNotification = async () => {
+		await Notification.requestPermission();
+		new Notification('Test title', {
+			body: 'click me to show Test window',
+		}).onclick = () => window.electronAPI.showTest();
+	};
+
 	return (
 		<header>
 			<div className='homepage'>
@@ -70,6 +77,23 @@ function HomePage({ invoices, setInvoices }) {
 					<span className='d-none'>Invoice</span>
 				</div>
 			</div>
+			<div>
+				<button type='button' onClick={showNotification}>
+					Show notification (Notifications API)
+				</button>
+				<button
+					type='button'
+					onClick={() =>
+						window.electronAPI.showNotification(
+							'Test title',
+							'this is a test notification'
+						)
+					}
+				>
+					Show notification (Electron API)
+				</button>
+			</div>
+			<hr />
 			<div>
 				<button
 					type='button'

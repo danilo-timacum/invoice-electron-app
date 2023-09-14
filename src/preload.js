@@ -23,6 +23,11 @@ contextBridge.exposeInMainWorld('electronAPI', {
 		ipcRenderer.send('create-test');
 	},
 
+	showNotification: (a, b) => {
+		console.log('clicked show notification');
+		ipcRenderer.send('show-notification', a, b);
+	},
+
 	initState: (setState) => {
 		console.log('inside initState');
 		const stateUpdateHandler = (event, newState) => {

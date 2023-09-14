@@ -1,4 +1,10 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const {
+	app,
+	BrowserWindow,
+	ipcMain,
+	Notification,
+	ipcRenderer,
+} = require('electron');
 const path = require('path');
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -124,7 +130,7 @@ const createWindow = () => {
 	// 	}
 	// });
 
-	ipcMain.on('show-test', () => {
+	const showTestWindow = () => {
 		if (testWindow.isDestroyed()) {
 			console.log('destroyed');
 			testWindow = new BrowserWindow({
@@ -150,6 +156,10 @@ const createWindow = () => {
 			console.log('not destroyed');
 			testWindow.show();
 		}
+	};
+
+	ipcMain.on('show-test', () => {
+		showTestWindow();
 		console.log('ipcmain on show-test');
 	});
 
@@ -280,4 +290,19 @@ ipcMain.on('state-update', (event, newState) => {
 
 ipcMain.handle('get-current-state', (event) => {
 	return sharedState;
+});
+
+const showNotification = (title, body) => {
+	const myNotification = new Notification({ title, body });
+	// myNotification.on('click', () => {
+	// 	console.log('Notification clicked');
+	// 	console.log(BrowserWindow.getAllWindows());
+	// 	BrowserWindow.getAllWindows()[0].webContents.send('show-test');
+	// });
+	myNotification.show();
+};
+
+ipcMain.on('show-notification', (event, a, b) => {
+	console.log(a, b);
+	showNotification(a, b);
 });
