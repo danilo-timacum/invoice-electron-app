@@ -6,8 +6,11 @@
 // contextBridge.exposeInMainWorld('electron', {
 // 	getAssetPath: (asset) => ipcRenderer.invoke('get-asset-path', asset),
 // });
+// if (isTest) {
+// }
 
 const { contextBridge, ipcRenderer } = require('electron');
+import('wdio-electron-service/preload');
 
 contextBridge.exposeInMainWorld('electronAPI', {
 	showTest: () => {

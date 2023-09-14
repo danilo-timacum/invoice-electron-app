@@ -7,6 +7,10 @@ const {
 } = require('electron');
 const path = require('path');
 
+// if (isTest) {
+import('wdio-electron-service/main');
+// }
+
 const isDev = process.env.NODE_ENV === 'development';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -23,6 +27,10 @@ const createWindow = () => {
 		width: 1920,
 		height: 1080,
 		webPreferences: {
+			// nodeIntegration: true,
+
+			contextIsolation: true,
+			sandbox: false,
 			preload: path.join(__dirname, 'preload.js'),
 			devTools: isDev,
 		},
