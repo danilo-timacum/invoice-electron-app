@@ -157,6 +157,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 					<div>
 						<input
 							type='text'
+							data-test="sender-street-address-input"
 							value={senderStreet}
 							onChange={(e) => setSenderStreet(e.target.value)}
 						/>
@@ -167,6 +168,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 					<div>
 						<input
 							type='text'
+							data-test="sender-city-input"
 							value={senderCity}
 							onChange={(e) => setSenderCity(e.target.value)}
 						/>
@@ -177,6 +179,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 					<div>
 						<input
 							type='text'
+							data-test="sender-postcode-input"
 							value={senderPostCode}
 							onChange={(e) => setSenderPostCode(e.target.value)}
 						/>
@@ -187,6 +190,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 					<div>
 						<input
 							type='text'
+							data-test="sender-country-input"
 							value={senderCountry}
 							onChange={(e) => setSenderCountry(e.target.value)}
 						/>
@@ -200,6 +204,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 					<div>
 						<input
 							type='text'
+							data-test="client's-name-input"
 							value={clientName}
 							onChange={(e) => setClientName(e.target.value)}
 						/>
@@ -210,6 +215,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 					<div>
 						<input
 							type='email'
+							data-test="client's-email-input"
 							value={clientMail}
 							onChange={(e) => setClientMail(e.target.value)}
 						/>
@@ -220,6 +226,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 					<div>
 						<input
 							type='text'
+							data-test="client's-street-address-input"
 							value={clientStreet}
 							onChange={(e) => setClientStreet(e.target.value)}
 						/>
@@ -230,6 +237,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 					<div>
 						<input
 							type='text'
+							data-test="client's-city-input"
 							value={clientCity}
 							onChange={(e) => setClientCity(e.target.value)}
 						/>
@@ -240,6 +248,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 					<div>
 						<input
 							type='number'
+							data-test="client's-postcode-input"
 							value={clientPostCode}
 							onChange={(e) => setClientPostCode(e.target.value)}
 						/>
@@ -250,6 +259,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 					<div>
 						<input
 							type='text'
+							data-test="client's-country-input"
 							value={clientCountry}
 							onChange={(e) => setClientCountry(e.target.value)}
 						/>
@@ -262,6 +272,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 					<div>
 						<input
 							type='date'
+							data-test="invoice-date-input"
 							value={date}
 							onChange={(e) => setDate(e.target.value)}
 						/>
@@ -272,6 +283,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 					<div>
 						<input
 							type='text'
+							data-test="payment-terms-input"
 							value={terms}
 							onChange={(e) => setTerms(e.target.value)}
 						/>
@@ -282,6 +294,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 					<div>
 						<input
 							type='text'
+							data-test="project-description-input"
 							value={description}
 							onChange={(e) => setDescription(e.target.value)}
 						/>
@@ -297,6 +310,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 							<span>Item Name</span>
 							<div>
 								<input
+								    data-test={`item-${i}-name-input`}
 									name='name'
 									type='text'
 									placeholder='Banner Design'
@@ -309,6 +323,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 							<span>Qty.</span>
 							<div>
 								<input
+								    data-test={`item-${i}-quantity-input`}
 									name='quantity'
 									type='text'
 									placeholder='1'
@@ -321,6 +336,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 							<span>Price</span>
 							<div>
 								<input
+								    data-test={`item-${i}-price-input`}
 									name='price'
 									type='text'
 									placeholder='156.00'
@@ -333,6 +349,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 							<span>Total</span>
 							<div>
 								<input
+								    data-test={`item-${i}-total-input`}
 									name='total'
 									type='text'
 									placeholder='156.00'
@@ -341,7 +358,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 								/>
 							</div>
 						</div>
-						<div onClick={() => removeItem(item.name)} className='item-delete'>
+						<div onClick={() => removeItem(item.name)} className='item-delete' data-test={`item-${i}-delete-btn`}>
 							<img src={imgIconDelete} alt='icon-delete' />
 						</div>
 					</div>
@@ -351,7 +368,7 @@ function Form({ formId, setInvoices, currentInvoice = null }) {
 				</button>
 			</div>
 			<div className='bottom-separator'></div>
-			<button>Submit</button>
+			<button data-test="submit-btn">Submit</button>
 		</form>
 	);
 }

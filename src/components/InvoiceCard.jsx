@@ -6,7 +6,7 @@ import imgArrowRight from '../assets/icon-arrow-right.svg';
 
 const InvoiceCard = (props) => {
 	return (
-		<Link to={`/invoice/${props.id}`} className='invoice-card'>
+		<Link to={`/invoice/${props.id}`} className='invoice-card' data-test={props.id}>
 			<div className='invoice-card-id pb-24 text-start'>
 				<p>
 					#<span id='profileID'>{props.id}</span>

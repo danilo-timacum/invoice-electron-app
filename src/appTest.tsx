@@ -7,6 +7,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 		<div>
 			<h1>Test Window</h1>
 			<button
+			data-test="hide-btn"
 				type='button'
 				onClick={() => {
 					window.electronAPI.hideTest();
