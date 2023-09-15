@@ -44,6 +44,8 @@ const createWindow = () => {
 		height: 500,
 		show: false,
 		webPreferences: {
+			contextIsolation: true,
+			sandbox: false,
 			preload: path.join(__dirname, 'preload.js'),
 			devTools: isDev,
 		},
@@ -152,6 +154,8 @@ const createWindow = () => {
 				show: true,
 				// closable: false,
 				webPreferences: {
+					contextIsolation: true,
+					sandbox: false,
 					preload: path.join(__dirname, 'preload.js'),
 					devTools: isDev,
 				},
@@ -193,6 +197,8 @@ const createWindow = () => {
 			// show: false,
 			closable: true,
 			webPreferences: {
+				contextIsolation: true,
+				sandbox: false,
 				preload: path.join(__dirname, 'preload.js'),
 				devTools: isDev,
 			},
