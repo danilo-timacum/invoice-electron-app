@@ -10,6 +10,7 @@ const Filter = ({ updateFilter }) => {
 		<div className='position-relative'>
 			<div
 				className='homepage-filter'
+				data-test='filter-ddm-btn'
 				onClick={() => setShowFilter((curr) => !curr)}
 			>
 				<span>Filter</span>

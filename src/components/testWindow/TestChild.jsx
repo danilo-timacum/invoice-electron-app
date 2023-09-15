@@ -27,7 +27,7 @@ const TestChild = () => {
 
 	return (
 		<div>
-			<input type='text' value={sharedState || ''} onChange={handleChange} />
+			<input type='text' data-test="text-input" value={sharedState || ''} onChange={handleChange} />
 		</div>
 	);
 };

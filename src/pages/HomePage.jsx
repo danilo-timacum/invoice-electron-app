@@ -69,7 +69,7 @@ function HomePage({ invoices, setInvoices }) {
 					<p id='invoiceCounter'>{invoices.length} Invoices</p>
 				</div>
 				<Filter updateFilter={updateFilter} />
-				<div onClick={() => setShowModal(true)} className='homepage-btn'>
+				<div onClick={() => setShowModal(true)} className='homepage-btn' data-test="new-invoice-btn">
 					<span>
 						<img src={imgIconPlus} alt='icon-plus' />
 					</span>
@@ -78,11 +78,12 @@ function HomePage({ invoices, setInvoices }) {
 				</div>
 			</div>
 			<div>
-				<button type='button' onClick={showNotification}>
+				<button type='button' onClick={showNotification} data-test="show-notifications-btn-1">
 					Show notification (Notifications API)
 				</button>
 				<button
 					type='button'
+					data-test="show-notifications-btn-2"
 					onClick={() =>
 						window.electronAPI.showNotification(
 							'Test title',
@@ -97,6 +98,7 @@ function HomePage({ invoices, setInvoices }) {
 			<div>
 				<button
 					type='button'
+					data-test="show-test-win-btn"
 					onClick={() => {
 						window.electronAPI.showTest();
 						// const win = new BrowserWindow({ width: 800, height: 600 });
@@ -108,6 +110,7 @@ function HomePage({ invoices, setInvoices }) {
 				</button>
 				<button
 					type='button'
+					data-test="hide-test-win-btn"
 					onClick={() => {
 						window.electronAPI.hideTest();
 						// const win = new BrowserWindow({ width: 800, height: 600 });
